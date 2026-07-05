@@ -27,20 +27,20 @@ typedef struct String String;
 #define SLOPJC Object
 #include __FILE__
 
-#define SLOPJC_AutoreleasePool SLOPJC_Object                       \
-    FIELD    (Object         **,ptr                              ) \
-    FIELD    (size_t           ,count                            ) \
-    FIELD    (size_t           ,cap                              ) \
-    FIELD    (AutoreleasePool *,prev                             ) \
-    OVERRIDE (void             ,AutoreleasePool,Release,(void *) )
+#define SLOPJC_AutoreleasePool SLOPJC_Object                        \
+    FIELD    ( Object         **,ptr                              ) \
+    FIELD    ( size_t           ,count                            ) \
+    FIELD    ( size_t           ,cap                              ) \
+    FIELD    ( AutoreleasePool *,prev                             ) \
+    OVERRIDE ( void             ,AutoreleasePool,Release,(void *) )
 #define SLOPJC AutoreleasePool
 #include "slopjc.h"
 
-#define SLOPJC_String SLOPJC_Object               \
-    FIELD    (char   *,ptr                      ) \
-    FIELD    (size_t  ,count                    ) \
-    OVERRIDE (void    ,String,Release ,(void *) ) \
-    OVERRIDE (String *,String,ToString,(void *) )
+#define SLOPJC_String SLOPJC_Object                \
+    FIELD    ( char   *,ptr                      ) \
+    FIELD    ( size_t  ,count                    ) \
+    OVERRIDE ( void    ,String,Release ,(void *) ) \
+    OVERRIDE ( String *,String,ToString,(void *) )
 #define SLOPJC String
 #include __FILE__
 
