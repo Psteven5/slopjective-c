@@ -122,7 +122,7 @@ static inline SLOPJC *SLOPJC_CAT3(SLOPJC,_,Alloc)(void)
     };
 #pragma GCC diagnostic pop
     SLOPJC *self = malloc(sizeof(*self));
-    self->refCount = 1;
+    atomic_init(&self->refCount, 1);
     self->v = &v;
     return self;
 }
